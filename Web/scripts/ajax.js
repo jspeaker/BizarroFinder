@@ -9,7 +9,7 @@ BizarroFinder.AjaxWrapper = function () {
       url: url,
       contentType: 'application/json; charset=utf-8',
       success: callback,
-      error: function (xhr, status, error) {
+      error: function (xhr) {
         target.html("<p class='error'>" + xhr.status + " " + xhr.statusText + "</p>");
       }
     };
@@ -17,7 +17,7 @@ BizarroFinder.AjaxWrapper = function () {
     try {
       $.ajax(ajaxObject);
     } catch (e) {
-      // todo: handle error
+      target.html("<p class='error'>" + e.message + "</p>");
     }
   };
 
@@ -37,7 +37,7 @@ BizarroFinder.AjaxWrapper = function () {
           dataType: 'json',
           cache: false,
           success: callback,
-          error: function (xhr, status, error) {
+          error: function (xhr) {
             target.html("<p class='error'>" + xhr.status + " " + xhr.statusText + "</p>");
           }
         };

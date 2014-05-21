@@ -53,9 +53,26 @@
     <Content Include="scripts\templates\pagination.html" />
     <Content Include="scripts\templates\results.html" />
     <Content Include="scripts\ui.js" />
+    <Content Include="styles\fonts\GettyIcons.svg" />
+    <Content Include="styles\fonts\LubalinDemi.svg" />
+    <Content Include="styles\fonts\lubalingraphgi-bk.svg" />
+    <Content Include="styles\fonts\LubalinMd.svg" />
     <Content Include="styles\main.css" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="styles\fonts\GettyIcons.eot" />
+    <None Include="styles\fonts\GettyIcons.ttf" />
+    <None Include="styles\fonts\GettyIcons.woff" />
+    <None Include="styles\fonts\LubalinDemi.eot" />
+    <None Include="styles\fonts\LubalinDemi.ttf" />
+    <None Include="styles\fonts\LubalinDemi.woff" />
+    <None Include="styles\fonts\lubalingraphgi-bk.eot" />
+    <None Include="styles\fonts\lubalingraphgi-bk.ttf" />
+    <None Include="styles\fonts\lubalingraphgi-bk.woff" />
+    <None Include="styles\fonts\LubalinMd.eot" />
+    <None Include="styles\fonts\LubalinMd.ttf" />
+    <None Include="styles\fonts\LubalinMd.woff" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
