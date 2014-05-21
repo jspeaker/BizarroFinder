@@ -1,4 +1,23 @@
-﻿body
+﻿@font-face {
+  font-family: "GettyEmbedIcons";
+  src: url("fonts/GettyIcons.eot");
+  src: local("?"), url("fonts/GettyIcons.woff") format("woff"), url("fonts/GettyIcons.ttf") format("truetype"), url("fonts/GettyIcons.svg#GettyIcons") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "Lubalin";
+  src: url("fonts/lubalingraphgi-bk.eot");
+  src: local("?"), url("fonts/lubalingraphgi-bk.woff") format("woff"), url("fonts/lubalingraphgi-bk.ttf") format("truetype"), url("fonts/lubalingraphgi-bk.svg#lubalingraphgi-bk") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "ITC Lubalin Graph New";
+  src: url("fonts/LubalinDemi.eot");
+  src: local("?"), url("fonts/LubalinDemi.woff") format("woff"), url("fonts/LubalinDemi.ttf") format("truetype"), url("fonts/LubalinDemi.svg#LubalinDemi") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+
+body
 {
   background-color: #000;
   color: #fff;
@@ -136,6 +155,27 @@ figcaption.attribution
   -khtml-border-radius: 8px;
 }
 
+#embed-modal a.modal-close {
+  color: #000 !important;
+  display: block;
+  font-family: 'GettyEmbedIcons';
+  font-size: 28px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  position: absolute;
+  right: 14px;
+  text-decoration: none;
+  top: 14px;
+  z-index: 1;
+}
+
+#embed-modal .modal-close:before {
+  content: "\e003";
+}
+
+
 .embed-modal-contents
 {
   background-color: #fff;
@@ -152,6 +192,9 @@ figcaption.attribution
   {
     font-family: "ITC Lubalin Graph New", Times, serif;
     font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
     margin: 0;
   }
 

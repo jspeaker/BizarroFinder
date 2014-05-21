@@ -31,7 +31,7 @@ BizarroFinder.EmbedModal = function () {
       targetElement = $("#embed-modal");
       BizarroFinder.ModalPositioner().set(e, targetElement);
       targetElement.show();
-      $("#embed-link textarea")[0].select();
+      $("#embed-link textarea")[0].setSelectionRange(0, 9999);
     });
   };
 
