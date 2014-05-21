@@ -38,12 +38,9 @@ BizarroFinder.Bootstrapper = function () {
       e.stopPropagation();
     });
 
-    $("#embed-link").delegate("textarea", "click", function () {
-      $("#embed-link textarea")[0].focus();
-      $("#embed-link textarea")[0].setSelectionRange(0, 9999);
-    });
-
-    $("#embed-link").delegate("textarea", "touchend", function () {
+    $("#embed-link textarea").bind("tap click", function (e) {
+      e.stopPropagation();
+      e.preventDefault();
       $("#embed-link textarea")[0].focus();
       $("#embed-link textarea")[0].setSelectionRange(0, 9999);
     });

@@ -50,7 +50,7 @@ BizarroFinder.AjaxWrapper = function () {
   }
 
   function spinner(target) {
-    target.html("<div class='spinner'><img src='/images/loading.gif' title='loading' alt='loading' /></div>");
+    target.html("<div class='spinner'><img src='/images/loading.gif' /></div>");
   }
 
   return {
