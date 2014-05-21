@@ -1,0 +1,21 @@
+﻿<div>
+  <ul data-if="SearchForImagesResult.ItemTotalCount > 0">
+    <li data-foreach="item" data-in="SearchForImagesResult.Images" data-embed-url="${item.UrlEmbed}">
+      <div class="image-container">
+        <div class="image-center">
+          <img src="${item.UrlThumb}" title="${item.Title}" alt="${item.Title}" />
+        </div>
+      </div>
+      <a href="javascript:void(0);" class="embed-link" data-if-item="UrlEmbed != ''">&lt;Embed It! /&gt;</a>
+      <div class="preview">
+        <figure class="preview-content">
+          <img src="${item.UrlComp}" title="${item.Title}" alt="${item.Title}" class="comp-image" />
+          <figcaption class="title">${item.Title}</figcaption>
+          <figcaption class="attribution">${item.Artist} / ${item.CollectionName}</figcaption>
+          <a href="javascript:void(0);" class="embed-link" data-if-item="UrlEmbed != ''">&lt;Embed It! /&gt;</a>
+        </figure>
+      </div>
+    </li>
+  </ul>
+  <p data-if="SearchForImagesResult.ItemTotalCount === 0">No results found, bummer!</p>
+</div>
