@@ -1,32 +1,38 @@
 ﻿BizarroFinder.Auth = function () {
-  var authenticate = function(callback) {
-    var target = $("#results");
-    var local = document.location.href.indexOf("http://local.") > -1 ? "local." : "";
-    var host = local + "auth.bizarrofinder.iontech.org";
-
+  var target = $("#results");
+  var authenticate = function (callback) {
     try {
-      BizarroFinder.AjaxWrapper().get("http://" + host + "/api/OAuth", target, false, function (response) {
+      var operation = BizarroFinder.Operation.OAuthProxy;
+      BizarroFinder.AjaxWrapper().get(operation.protocol + "://" + BizarroFinder.baseAuthUri() + operation.route + operation.operation, target, false, function (response) {
+        if (response.status !== 200) {
+          BizarroFinder.Exception().handle(response.status + " " + response.reason, target);
+          return;
+        }
+
         if (callback) {
           callback(response);
         }
       });
     } catch(ex) {
-      target.html("<p class='error'>Oops! An error occurred.</p>");
+      BizarroFinder.Exception().handle(ex.message, target);
     }
   };
 
-  var setAuthToken = function(response) {
-    BizarroFinder.Authentication.token = response.access_token;
+  var setAuthToken = function (response) {
+    try {
+      BizarroFinder.Authentication.token = response.access_token;
+    } catch (ex) {
+      BizarroFinder.Exception().handle(ex.message, target);
+    }
   };
 
   var init = function () {
-    var target = $("#results");
     authenticate(function (response) {
       try {
         setAuthToken(response);
         BizarroFinder.Search().search();
-      } catch (exc) {
-        target.html("<p class='error'>Oops! An error occurred.</p>");
+      } catch (ex) {
+        BizarroFinder.Exception().handle(ex.message, target);
       }
     });
 
@@ -34,8 +40,8 @@
       BizarroFinder.Auth().authenticate(function (response) {
         try {
           setAuthToken(response);
-        } catch (exc) {
-          target.html("<p class='error'>Oops! An error occurred.</p>");
+        } catch (ex) {
+          BizarroFinder.Exception().handle(ex.message, target);
         }
       });
     }, 1740000);
@@ -48,5 +54,5 @@
 };
 
 BizarroFinder.Authentication = {
-  token: ""
+  token: String.empty
 };

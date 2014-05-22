@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Web;
 using Newtonsoft.Json;
 using OAuth.Domain;
 
@@ -16,13 +19,51 @@ namespace OAuth.Providers
             _httpClientFactory = httpClientFactory;
         }
 
-        public Token Authenticate()
+        public Response Authenticate()
         {
             try
             {
-                var clientId = string.Empty;
-                var clientSecret = string.Empty;
-                var file = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "auth.txt"));
+                const string baseAddress = "https://connect.gettyimages.com";
+                using (var httpClient = _httpClientFactory.Create("connect-oauth", new Uri(baseAddress)))
+                {
+                    var response = httpClient.PostAsync(new Uri(string.Format("{0}/oauth2/token/", baseAddress)), new FormUrlEncodedContent(Request())).Result;
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new HttpException((int)response.StatusCode, string.Format("{0} {1}", response.StatusCode, response.Headers.GetValues("X-Mashery-Error-Code").FirstOrDefault()));
+                    }
+
+                    var token = JsonConvert.DeserializeObject<Response>(response.Content.ReadAsStringAsync().Result);
+                    token.status = (int)response.StatusCode;
+                    token.reason = response.ReasonPhrase;
+                    return token;
+                }
+            }
+            catch (HttpException ex)
+            {
+                return new Response
+                {
+                    status = ex.GetHttpCode(),
+                    reason = ex.Message
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    status = (int) HttpStatusCode.InternalServerError,
+                    reason = ex.Message
+                };
+            }
+        }
+
+        private static IEnumerable<KeyValuePair<string, string>> Request()
+        {
+            var clientId = string.Empty;
+            var clientSecret = string.Empty;
+
+            using (var file = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "auth.txt")))
+            {
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
@@ -36,38 +77,14 @@ namespace OAuth.Providers
                         clientSecret = line.Split('=')[1];
                     }
                 }
+            }
 
-                var request = new List<KeyValuePair<string, string>>
+            return new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("client_id", clientId),
                     new KeyValuePair<string, string>("client_secret", clientSecret),
                     new KeyValuePair<string, string>("grant_type", "client_credentials")
                 };
-
-                var uri =
-                    new Uri(
-                        "https://connect.gettyimages.com/oauth2/token/?client_id=sc3njmvqbuzzdzdcd869mmwj&client_secret=3Dmzjgk8pZfu7mbW5BGZDYE3VKawYESzxDJHSjfx4gHvQ&grant_type=client_credentials");
-                var httpClient = _httpClientFactory.Create("connect-oauth", new Uri(uri.Scheme + "://" + uri.Host));
-                httpClient.BaseAddress = new Uri("https://connect.gettyimages.com");
-                var content =
-                    httpClient.PostAsync(uri, new FormUrlEncodedContent(request))
-                        .Result.Content.ReadAsStringAsync()
-                        .Result;
-                return JsonConvert.DeserializeObject<Token>(content);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
         }
-    }
-
-    public class Request
-    {
-        // ReSharper disable InconsistentNaming
-        public string client_id { get; set; }
-        public string client_secret { get; set; }
-        public string grant_type { get; set; }
-        // ReSharper restore InconsistentNaming
     }
 }

@@ -72,7 +72,7 @@ var templateController = (function () {
 
     for (var i = 0; i < properties.length; i++) {
       var propertyNameIsolator = new RegExp(/[\$\{\}]/gi);
-      var propertyName = properties[i].replace(propertyNameIsolator, "").replace(itemName, "");
+      var propertyName = properties[i].replace(propertyNameIsolator, String.empty).replace(itemName, String.empty);
 
       var value;
       try {
@@ -101,7 +101,7 @@ var templateController = (function () {
     }
 
     for (var i = 0; i < scriptCalls.length; i++) {
-      var scriptCall = scriptCalls[i].replace("!{", "").replace("}!", "");
+      var scriptCall = scriptCalls[i].replace("!{", String.empty).replace("}!", "");
       var value;
       try {
         value = eval(scriptCall);
@@ -109,7 +109,7 @@ var templateController = (function () {
         value = null;
       }
       if (value === undefined || value === null) {
-        value = "";
+        value = String.empty;
       }
 
       theHtml = theHtml.replace(scriptCalls[i], value);
@@ -120,7 +120,7 @@ var templateController = (function () {
   };
 
   var renderEncodedProperties = function (dom, data) {
-    return renderProperties(propertyTypes.encoded, dom, data, "");
+    return renderProperties(propertyTypes.encoded, dom, data, String.empty);
   };
 
   var renderCollections = function (dom, data) {

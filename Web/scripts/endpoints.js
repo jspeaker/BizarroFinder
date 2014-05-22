@@ -1,6 +1,16 @@
 BizarroFinder.BaseUri = "connect.gettyimages.com";
 
+BizarroFinder.baseAuthUri = function() {
+  var authBaseUris = ["auth.bizarrofinder.iontech.org", "local.auth.bizarrofinder.iontech.org"];
+  return document.location.host.indexOf("local.") === -1 ? authBaseUris[0] : authBaseUris[1];
+};
+
 BizarroFinder.Operation = {
+  OAuthProxy: {
+    protocol: "http",
+    operation: "oauth",
+    route: "/api/",
+  },
   Token: {
     protocol: "https",
     operation: "token",

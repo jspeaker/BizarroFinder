@@ -10,15 +10,11 @@ BizarroFinder.AjaxWrapper = function () {
       contentType: 'application/json; charset=utf-8',
       success: callback,
       error: function (xhr) {
-        target.html("<p class='error'>" + xhr.status + " " + xhr.statusText + "</p>");
+        BizarroFinder.Exception().handle(xhr.status + " " + xhr.statusText, target);
       }
     };
 
-    try {
-      $.ajax(ajaxObject);
-    } catch (e) {
-      target.html("<p class='error'>" + e.message + "</p>");
-    }
+    $.ajax(ajaxObject);
   };
 
   function post(params, target, showSpinner, callback) {
@@ -38,20 +34,16 @@ BizarroFinder.AjaxWrapper = function () {
           cache: false,
           success: callback,
           error: function (xhr) {
-            target.html("<p class='error'>" + xhr.status + " " + xhr.statusText + "</p>");
+            BizarroFinder.Exception().handle(xhr.status + " " + xhr.statusText, target);
           }
         };
 
-    try {
-      $.ajax(ajaxObject);
-    } catch (e) {
-      target.html("<p class='error'>" + e.message + "</p>");
-    }
-  }
+    $.ajax(ajaxObject);
+  };
 
   function spinner(target) {
     target.html("<div class='spinner'><img src='/images/loading.gif' /></div>");
-  }
+  };
 
   return {
     post: post,

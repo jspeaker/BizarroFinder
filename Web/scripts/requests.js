@@ -66,7 +66,7 @@ BizarroFinder.Request = {
   SearchForImages2: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-SearchForImages-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     SearchForImages2RequestBody: {
@@ -83,16 +83,16 @@ BizarroFinder.Request = {
         IncludeKeywords: false,
         ItemCount: 75,
         ItemStartNumber: 1,
-        RefinementOptionsSet: "",
-        EditorialSortOrder: "",
-        CreativeSortOrder: ""
+        RefinementOptionsSet: String.empty,
+        EditorialSortOrder: String.empty,
+        CreativeSortOrder: String.empty
       }
     }
   },
   SearchForImages3: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-SearchForImages3-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     SearchForImagesRequestBody: {
@@ -109,16 +109,16 @@ BizarroFinder.Request = {
         IncludeKeywords: false,
         ItemCount: 75,
         ItemStartNumber: 1,
-        RefinementOptionsSet: "",
-        EditorialSortOrder: "",
-        CreativeSortOrder: ""
+        RefinementOptionsSet: String.empty,
+        EditorialSortOrder: String.empty,
+        CreativeSortOrder: String.empty
       }
     }
   },
   SearchForVideos: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-SearchForVideos-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     SearchForVideosRequestBody: {
@@ -135,7 +135,7 @@ BizarroFinder.Request = {
   GetImageDetails: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GetImageDetails-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetImageDetailsRequestBody: {
@@ -147,7 +147,7 @@ BizarroFinder.Request = {
   GetImageDownloadAuthorizations: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GIDA-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetImageDownloadAuthorizationsRequestBody: {
@@ -157,7 +157,7 @@ BizarroFinder.Request = {
   GetLargestImageDownloadAuthorizations: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GLIDA-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetLargestImageDownloadAuthorizationsRequestBody: {
@@ -167,8 +167,8 @@ BizarroFinder.Request = {
   CreateDownloadRequest: {
     RequestHeader: {
       Token: null,
-      Detail: "",
-      CoordinationId: ""
+      Detail: String.empty,
+      CoordinationId: String.empty
     },
     CreateDownloadRequestBody: {
       DownloadItems: []
@@ -178,7 +178,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-CreateLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateLightboxRequestBody: {
@@ -192,7 +192,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-CreateLightboxItems-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateLightboxItemsRequestBody: {
@@ -204,7 +204,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GetLightboxHeaders-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetLightboxHeadersRequestBody: {
@@ -218,7 +218,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GetLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetLightboxRequestBody: {
@@ -233,7 +233,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-UpdateLightboxHeader-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     UpdateLightboxHeaderRequestBody: {
@@ -248,7 +248,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-DeleteLightboxItems-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     DeleteLightboxItemsRequestBody: {
@@ -260,7 +260,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-CreateSharedLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateSharedLightboxRequestBody: {
@@ -271,7 +271,7 @@ BizarroFinder.Request = {
   {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-DeleteLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     DeleteLightboxRequestBody: {
@@ -281,7 +281,7 @@ BizarroFinder.Request = {
   CreateCustomer: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-CreateCustomer-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateCustomerRequestBody: {
@@ -299,14 +299,14 @@ BizarroFinder.Request = {
   GetActiveProductOfferings: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GetActiveProductOfferings-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     }
   },
   GetCountries: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GetCountries-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetCountriesRequestBody: {
@@ -316,7 +316,7 @@ BizarroFinder.Request = {
   GetEventDetails: {
     RequestHeader: {
       Token: null,
-      Detail: "",
+      Detail: String.empty,
       CoordinationId: "NCF-GetEventDetails-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetEventDetailsRequestBody: {

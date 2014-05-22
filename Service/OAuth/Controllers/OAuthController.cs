@@ -14,7 +14,7 @@ namespace OAuth.Controllers
         }
 
         // GET api/OAuth
-        public Token Get()
+        public Response Get()
         {
             return _authenticator.Authenticate();
         }

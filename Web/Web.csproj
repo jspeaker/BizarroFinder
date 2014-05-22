@@ -43,6 +43,7 @@
     <Content Include="scripts\builder.js" />
     <Content Include="scripts\auth.js" />
     <Content Include="scripts\endpoints.js" />
+    <Content Include="scripts\exception.js" />
     <Content Include="scripts\js-extensions.js" />
     <Content Include="scripts\json2.js" />
     <Content Include="scripts\modal.js" />

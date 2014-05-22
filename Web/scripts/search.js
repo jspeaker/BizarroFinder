@@ -7,11 +7,9 @@
     return Math.ceil(Math.random() * (max - min) + min);
   }
 
-  var search = function (page) {
+  var createQuery = function (page, pageSize) {
     var sortIndex, sortOrders;
     var phrase = $("#keyword").val();
-    var target = $("#results");
-    var pageSize = 75;
     if (!page) {
       page = 1;
     }
@@ -28,16 +26,22 @@
     sortOrders = ["MostRecent", "MostPopular"];
     query.SearchForImagesRequestBody.ResultOptions.CreativeSortOrder = sortOrders[sortIndex];
 
+    return query;
+  };
+
+  var search = function (page) {
+    var target = $("#results");
+    var pageSize = 75;
+
     var params = {
-      Data: JSON.stringify(query),
+      Data: JSON.stringify(createQuery(page, pageSize)),
       Url: uri
     };
 
     try {
       BizarroFinder.AjaxWrapper().post(params, target, true, function (response) {
         if (response.ResponseHeader.Status === "error") {
-          target.html("<p class='error'>Oops! An error occurred.</p>");
-          return;
+          BizarroFinder.Exception().handle(response.ResponseHeader.StatusList[0].Message, target);
         }
         simpleTemplate.renderJson(resultsUrl, response, target, function () {
           var paginationData = {
@@ -49,7 +53,7 @@
         });
       });
     } catch (ex) {
-      target.html("<p class='error'>Oops! An error occurred.</p>");
+      BizarroFinder.Exception().handle(ex.message, target);
     }
   };
 
