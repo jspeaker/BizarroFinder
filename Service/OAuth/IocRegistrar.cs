@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Web;
 using Autofac;
 using Autofac.Integration.WebApi;
@@ -29,12 +28,6 @@ namespace OAuth
         public void Register(ContainerBuilder builder)
         {
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-
-            if (HttpContext.Current != null)
-            {
-                builder.RegisterInstance(new HttpContextWrapper(HttpContext.Current)).As<HttpContextBase>();
-            }
-
             RegisterProviders(builder);
         }
 
