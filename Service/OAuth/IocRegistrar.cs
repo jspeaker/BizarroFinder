@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Web;
 using Autofac;
 using Autofac.Integration.WebApi;
 using OAuth.Providers;
