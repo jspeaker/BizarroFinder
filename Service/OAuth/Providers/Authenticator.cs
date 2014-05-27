@@ -26,11 +26,18 @@ namespace OAuth.Providers
                 const string baseAddress = "https://connect.gettyimages.com";
                 using (var httpClient = _httpClientFactory.Create("connect-oauth", new Uri(baseAddress)))
                 {
-                    var response = httpClient.PostAsync(new Uri(string.Format("{0}/oauth2/token/", baseAddress)), new FormUrlEncodedContent(Request())).Result;
+                    var response = httpClient
+                        .PostAsync(
+                        new Uri(string.Format("{0}/oauth2/token/", baseAddress)),
+                        new FormUrlEncodedContent(Request())).Result;
 
                     if (!response.IsSuccessStatusCode)
                     {
-                        throw new HttpException((int)response.StatusCode, string.Format("{0} {1}", response.StatusCode, response.Headers.GetValues("X-Mashery-Error-Code").FirstOrDefault()));
+                        throw new HttpException(
+                            (int)response.StatusCode,
+                            string.Format("{0} {1}",
+                            response.StatusCode,
+                            response.Headers.GetValues("X-Mashery-Error-Code").FirstOrDefault()));
                     }
 
                     var token = JsonConvert.DeserializeObject<Response>(response.Content.ReadAsStringAsync().Result);
@@ -51,7 +58,7 @@ namespace OAuth.Providers
             {
                 return new Response
                 {
-                    status = (int) HttpStatusCode.InternalServerError,
+                    status = (int)HttpStatusCode.InternalServerError,
                     reason = ex.Message
                 };
             }
