@@ -5,7 +5,7 @@ BizarroFinder
 
 http://bizarrofinder.iontech.org/
 
-*Note that the above URL does not have an SSL certificate, so this sample will not function in Internet Explorer which would require SSL on the main URL to match the SSL protocol being used in the Ajax calls to the Connect API.*
+*Note that the above domain does not have an SSL certificate, so this sample will not function in Internet Explorer which would require SSL (https) on the main URL to match the SSL protocol (https) being used in the Ajax calls to the Connect API.*
 
 BizarroFinder is organized into two projects:
  1. "Web" contains HTML, JavaScript, CSS and Images for the main application. It is only in a Visual Studio project for organizational purposes - there is no dependency on Visual Studio.
