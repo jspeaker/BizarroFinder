@@ -1,8 +1,8 @@
 BizarroFinder.BaseUri = "connect.gettyimages.com";
 
 BizarroFinder.baseAuthUri = function() {
-  var authBaseUris = ["auth.bizarrofinder.iontech.org", "local.auth.bizarrofinder.iontech.org"];
-  return document.location.host.indexOf("local.") === -1 ? authBaseUris[0] : authBaseUris[1];
+  var baseAuthUris = ["auth.bizarrofinder.iontech.org", "local.auth.bizarrofinder.iontech.org"];
+  return document.location.host.indexOf("local.") === -1 ? baseAuthUris[0] : baseAuthUris[1];
 };
 
 BizarroFinder.Operation = {
@@ -10,31 +10,6 @@ BizarroFinder.Operation = {
     protocol: "http",
     operation: "oauth",
     route: "/api/",
-  },
-  Token: {
-    protocol: "https",
-    operation: "token",
-    route: "/oauth2/",
-  },
-  CreateApplicationSession: {
-    protocol: "https",
-    operation: "CreateApplicationSession",
-    route: "/v1/session/",
-  },
-  CreateSession: {
-    protocol: "https",
-    operation: "CreateSession",
-    route: "/v1/session/",
-  },
-  RenewSession: {
-    protocol: "https",
-    operation: "RenewSession",
-    route: "/v1/session/",
-  },
-  SearchForImages2: {
-    protocol: "https",
-    operation: "SearchForImages",
-    route: "/v1/search/",
   },
   SearchForImages3: {
     protocol: "https",

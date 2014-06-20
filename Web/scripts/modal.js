@@ -14,7 +14,7 @@ BizarroFinder.ModalPositioner = function () {
 };
 
 BizarroFinder.EmbedModal = function () {
-  var targetElement = $("#embed-modal");
+  var embedModal = $("#embed-modal");
 
   var oembed = function (e, callback) {
     var embedUrl = $(e.currentTarget).closest("li").data("embed-url");
@@ -27,15 +27,15 @@ BizarroFinder.EmbedModal = function () {
 
   var setEmbedModalProperties = function (e, response) {
     $("#embed-modal textarea").val(response.html);
-    BizarroFinder.ModalPositioner().set(e, targetElement);
-    targetElement.show();
+    BizarroFinder.ModalPositioner().set(e, embedModal);
+    embedModal.show();
     $("#embed-link textarea")[0].focus();
     $("#embed-link textarea")[0].setSelectionRange(0, 9999);
   };
 
   var hide = function () {
     try {
-      $("#embed-modal").hide();
+      embedModal.hide();
     } catch (ex) {
       BizarroFinder.Exception().handle(ex.message, BizarroFinder.modalDebugger);
     }
@@ -60,13 +60,13 @@ BizarroFinder.EmbedModal = function () {
 BizarroFinder.Preview = function () {
   var show = function (e) {
     try {
-      var targetElement = $(e.currentTarget).closest("li").find("div.preview");
+      var previewModal = $(e.currentTarget).closest("li").find("div.preview");
       e.stopPropagation();
       BizarroFinder.EmbedModal().hide();
       hide();
 
-      BizarroFinder.ModalPositioner().set(e, targetElement);
-      targetElement.show();
+      BizarroFinder.ModalPositioner().set(e, previewModal);
+      previewModal.show();
     } catch (ex) {
       BizarroFinder.Exception().handle(ex.message, BizarroFinder.modalDebugger);
     }

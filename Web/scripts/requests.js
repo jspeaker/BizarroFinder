@@ -1,99 +1,9 @@
 BizarroFinder.Request = {
-  CreateSession: {
-    RequestHeader: {
-      Token: null,
-      CoordinationId: "NCF-CreateSession-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
-    },
-    CreateSessionRequestBody: {
-      SystemId: "9999",
-      SystemPassword: "systemPassword12345678==",
-      UserName: "qaterms_pa",
-      UserPassword: "Ph0t0$"
-    }
-  },
-  CreateSessionProduction: {
-    RequestHeader: {
-      Token: null,
-      CoordinationId: "NCF-CreateSession-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
-    },
-    CreateSessionRequestBody: {
-      SystemId: "9999",
-      SystemPassword: "8da++YMJzWX4RXCJYgf1DJN0PuLPcGnBuWFcjHiIBl0=",
-      UserName: "qaterms_pa",
-      UserPassword: "P@55w0rd"
-    }
-  },
-  CreateApplicationSession: {
-    RequestHeader: {
-      Token: null,
-      CoordinationId: "NCF-CreateApplicationSession-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
-    },
-    CreateApplicationSessionRequestBody: {
-      SystemId: "9999",
-      SystemPassword: "systemPassword12345678=="
-    }
-  },
-  RenewSession: {
-    RequestHeader: {
-      Token: null,
-      CoordinationId: "NCF-RenewSession-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
-    },
-    RenewSessionRequestBody: {
-      SystemId: "9999",
-      SystemPassword: "systemPassword12345678=="
-    }
-  },
-  RenewSessionProduction: {
-    RequestHeader: {
-      Token: null,
-      CoordinationId: "NCF-RenewSession-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
-    },
-    RenewSessionRequestBody: {
-      SystemId: "9999",
-      SystemPassword: "8da++YMJzWX4RXCJYgf1DJN0PuLPcGnBuWFcjHiIBl0=",
-    }
-  },
-  CreateApplicationSessionProduction: {
-    RequestHeader: {
-      Token: null,
-      CoordinationId: "NCF-CreateApplicationSession-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
-    },
-    CreateApplicationSessionRequestBody: {
-      SystemId: "9999",
-      SystemPassword: "8da++YMJzWX4RXCJYgf1DJN0PuLPcGnBuWFcjHiIBl0="
-    }
-  },
-  SearchForImages2: {
-    RequestHeader: {
-      Token: null,
-      Detail: "",
-      CoordinationId: "NCF-SearchForImages-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
-    },
-    SearchForImages2RequestBody: {
-      Language: "en-us",
-      Filter: {
-        ImageFamilies: [
-            "Creative"
-        ]
-      },
-      Query: {
-        SearchPhrase: "dog"
-      },
-      ResultOptions: {
-        IncludeKeywords: false,
-        ItemCount: 75,
-        ItemStartNumber: 1,
-        RefinementOptionsSet: "",
-        EditorialSortOrder: "",
-        CreativeSortOrder: ""
-      }
-    }
-  },
   SearchForImages3: {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-SearchForImages3-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-SearchForImages3-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     SearchForImagesRequestBody: {
       Language: "en-us",
@@ -119,7 +29,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-SearchForVideos-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-SearchForVideos-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     SearchForVideosRequestBody: {
       Language: "en-us",
@@ -136,7 +46,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GetImageDetails-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GetImageDetails-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetImageDetailsRequestBody: {
       CountryCode: "USA",
@@ -148,7 +58,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GIDA-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GIDA-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetImageDownloadAuthorizationsRequestBody: {
       ImageSizes: []
@@ -158,7 +68,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GLIDA-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GLIDA-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetLargestImageDownloadAuthorizationsRequestBody: {
       Images: []
@@ -179,13 +89,13 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-CreateLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-CreateLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateLightboxRequestBody: {
-      ClientName: "NCF",
-      LightboxName: "NCF Lightbox",
-      Notes: "This is NCF lightbox",
-      ProjectName: "NCF Project"
+      ClientName: "BizarroFinder",
+      LightboxName: "BizarroFinder Lightbox",
+      Notes: "This is BizarroFinder lightbox",
+      ProjectName: "BizarroFinder Project"
     }
   },
   CreateLightboxItems:
@@ -193,7 +103,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-CreateLightboxItems-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-CreateLightboxItems-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateLightboxItemsRequestBody: {
       LightboxId: null,
@@ -205,7 +115,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GetLightboxHeaders-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GetLightboxHeaders-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetLightboxHeadersRequestBody: {
       ResultsViewOptions: {
@@ -219,7 +129,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GetLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GetLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetLightboxRequestBody: {
       LightboxId: null,
@@ -234,14 +144,14 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-UpdateLightboxHeader-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-UpdateLightboxHeader-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     UpdateLightboxHeaderRequestBody: {
       LightboxId: null,
-      ClientName: "NCF Updated",
-      LightboxName: "NCF Lightbox Updated",
-      Notes: "This is NCF lightbox Updated",
-      ProjectName: "NCF Project Updated"
+      ClientName: "BizarroFinder Updated",
+      LightboxName: "BizarroFinder Lightbox Updated",
+      Notes: "This is BizarroFinder lightbox Updated",
+      ProjectName: "BizarroFinder Project Updated"
     }
   },
   DeleteLightboxItems:
@@ -249,7 +159,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-DeleteLightboxItems-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-DeleteLightboxItems-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     DeleteLightboxItemsRequestBody: {
       LightboxId: null,
@@ -261,7 +171,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-CreateSharedLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-CreateSharedLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateSharedLightboxRequestBody: {
       LightboxId: null
@@ -272,7 +182,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-DeleteLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-DeleteLightbox-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     DeleteLightboxRequestBody: {
       LightboxId: null
@@ -282,7 +192,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-CreateCustomer-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-CreateCustomer-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     CreateCustomerRequestBody: {
       EmailAddress: "HankM@foo.com",
@@ -300,14 +210,14 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GetActiveProductOfferings-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GetActiveProductOfferings-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     }
   },
   GetCountries: {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GetCountries-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GetCountries-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetCountriesRequestBody: {
       Language: "de" // German
@@ -317,7 +227,7 @@ BizarroFinder.Request = {
     RequestHeader: {
       Token: null,
       Detail: "",
-      CoordinationId: "NCF-GetEventDetails-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
+      CoordinationId: "BizarroFinder-GetEventDetails-" + navigator.userAgent + "_" + (new Date().getTime() / 1000)
     },
     GetEventDetailsRequestBody: {
       EventIds: []

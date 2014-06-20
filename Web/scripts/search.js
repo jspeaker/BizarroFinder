@@ -1,14 +1,9 @@
 ﻿BizarroFinder.Search = function () {
   var uri = BizarroFinder.AjaxWrapperBuilder().operationUri(BizarroFinder.Operation.SearchForImages3);
-  var resultsUrl = "/scripts/templates/results.html";
-  var paginationUrl = "/scripts/templates/pagination.html";
-
-  function random(min, max) {
-    return Math.ceil(Math.random() * (max - min) + min);
-  }
+  var resultsTemplateUrl = "/scripts/templates/results.html";
+  var paginationTemplateUrl = "/scripts/templates/pagination.html";
 
   var createQuery = function (page, pageSize) {
-    var sortIndex, sortOrders;
     var phrase = $("#keyword").val();
     if (!page) {
       page = 1;
@@ -21,10 +16,7 @@
     query.SearchForImagesRequestBody.Filter.ExcludeNudity = "true";
     query.SearchForImagesRequestBody.ResultOptions.ItemCount = pageSize;
     query.SearchForImagesRequestBody.ResultOptions.ItemStartNumber = (pageSize * page) - (pageSize - 1);
-
-    sortIndex = random(0, 2) - 1;
-    sortOrders = ["MostRecent", "MostPopular"];
-    query.SearchForImagesRequestBody.ResultOptions.CreativeSortOrder = sortOrders[sortIndex];
+    query.SearchForImagesRequestBody.ResultOptions.CreativeSortOrder = "MostPopular";
 
     return query;
   };
@@ -43,12 +35,12 @@
         if (response.ResponseHeader.Status === "error") {
           BizarroFinder.Exception().handle(response.ResponseHeader.StatusList[0].Message, target);
         }
-        simpleTemplate.renderJson(resultsUrl, response, target, function () {
+        simpleTemplate.renderJson(resultsTemplateUrl, response, target, function () {
           var paginationData = {
             page: Math.ceil(response.SearchForImagesResult.ItemStartNumber / pageSize),
             pages: Math.ceil(response.SearchForImagesResult.ItemTotalCount / pageSize)
           };
-          simpleTemplate.renderJson(paginationUrl, paginationData, $("#pagination-control"), function () {
+          simpleTemplate.renderJson(paginationTemplateUrl, paginationData, $("#pagination-control"), function () {
           });
         });
       });
