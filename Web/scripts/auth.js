@@ -54,5 +54,5 @@
 };
 
 BizarroFinder.Authentication = {
-  token: String.empty
+  token: ""
 };

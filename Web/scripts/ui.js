@@ -1,6 +1,6 @@
 ﻿BizarroFinder.Ui = function() {
   var init = function () {
-    var phrase = document.location.hash.replace("#", String.empty);
+    var phrase = document.location.hash.replace("#", "");
     if (phrase) {
       $("#keyword").val(phrase);
     }

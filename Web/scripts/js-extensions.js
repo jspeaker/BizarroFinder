@@ -5,7 +5,7 @@ if (!('contains' in String.prototype)) {
 };
 
 String.prototype.getQueryValue = function (key) {
-  var query = decodeURIComponent(this.replace("?", String.empty));
+  var query = decodeURIComponent(this.replace("?", ""));
   var params = query.split("&");
   var i;
   for (i = 0; i < params.length; i += 1) {
@@ -14,7 +14,7 @@ String.prototype.getQueryValue = function (key) {
       return kvp[1];
     }
   }
-  return String.empty;
+  return "";
 };
 
 Date.fromJson = function (jsonDate) {
